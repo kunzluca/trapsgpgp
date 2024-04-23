@@ -1,0 +1,15 @@
+# Modifications to the code
+
+There are some minor changes that we have made to the TRAPs code published by [Mattia Serra (2020)](https://github.com/MattiaSerra/TRAPs) which we want to outline here. First, we have changed the default number of points along a TRAP curve in the main module from `NumPointsOnCurve = 40` to `NumPointsOnCurve = 42` in order to obtain line segments of 1/40° length along each TRAP. Second, we have added code to the main module to read in and loop through daily velocity fields in .csv file format within our specific environment. Code was also added to output results there with the timestamp of the current snapshot included in the filename. Third, we have found a tiny bug in the module `TRAPs\_process.m` in line 36. The term `(1-FracAttr)` there needs to be replaced simply by `(FracAttr)` on both sides of the equation. This will produce TRAP lengths as expected when changing the parameter `FracAttr`. We have opened an issue [here](URL).
+
+
+# Post-processing
+
+The raw output of the TRAPs algorithm requires some cleaning and post-processing as during the generation of these 20 years of daily TRAPs some unexpected features emerge. First of all, we could sometimes observe a few non-attracting TRAP cores in the data that show an attraction rate $s_1\ge0$. If present, we correct this error after the computation by simply removing the respective TRAPs from the dataset.
+
+Second, we find that these raw TRAPs sometimes show a variable spacing between points on the TRAP curve. 
+The output arrays for TRAP curves contain NaN values due to insufficient attraction rate at respective points. This can be observed anywhere along the TRAP array but most often occurs at the ends of the TRAP curve. In the other, more rare case, the masking creates discontinuous TRAPs. But one would actually want continuous TRAPs with no gaps. So we truncate TRAP curves to where the first discontinuities occur both on the left and right side of the core position to obtain an inner continuous version of a TRAP curve. After this process, we compare the total number of curve points before and after truncation and find that approx. 0.05% of all curve points in the dataset have been removed.
+After this truncation, TRAP curves bear no more NaN values but points on the truncated curve can still be unequally spaced. We linearly interpolate these points to equidistant points along the curve with a step size of 1/12°. With this, one should now be able to use TRAP curves for different spatial analyses, like e.g. the determination of drifter distances to the closest point on a TRAP curve, without introducing a bias.
+
+Third, we interpolate the $s_1(\boldsymbol{x}, t)$ attraction field to the positions of these new, equidistant curve points as the variation of attraction along a TRAP curve may become an interesting aspect. For this we apply a cubic two-dimensional interpolation because this method is also used in the original MATLAB code to determine attraction rates along the TRAP curve.
+
