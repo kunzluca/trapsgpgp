@@ -3,7 +3,7 @@
 ---
 
 ## Summary
-This repository provides software to track and analyse Transient Attracting Profiles (TRAPs, [Serra et al. (2020)](https://doi.org/10.1038/s41467-020-16281-x), [Serra and Haller (2016)](https://doi.org/10.1063/1.4951720)) in the Great Pacific Garbage Patch, see Kunz et al. (2024) for a detailed  analysis (submitted to [Copernicus Ocean Science](https://os.copernicus.org/)).
+This repository provides software to track and analyse Transient Attracting Profiles (TRAPs, [Serra et al. (2020)](https://doi.org/10.1038/s41467-020-16281-x), [Serra and Haller (2016)](https://doi.org/10.1063/1.4951720)) in the Great Pacific Garbage Patch, see [Kunz et al. (2024)](https://doi.org/10.5194/egusphere-2024-1215) for a detailed  analysis.
 
 The software post-processes raw output of the TRAPs detection algorithm  by [Mattia Serra (2020)](https://github.com/MattiaSerra/TRAPs) into two comprehensive datasets:
 1) the `TRAPS GPGP` dataset: This dataset contains 20 years of TRAP detections with various attributes like e.g. TRAP lifetimes, propagation speeds and pattern detections in the surrounding vorticity field.
@@ -54,7 +54,7 @@ This work is a contribution to the project [L3 Meso- to submesoscale turbulence 
 
 ## Please cite
 
-The repository is licensed under the GNU General Public License v3.0. © 2024 Luca Kunz. When using the software, please cite Kunz et al. (2024): "Transient Attracting Profiles in the Great Pacific Garbage Patch" and provide a link to the repository.
+The repository is licensed under the GNU General Public License v3.0. © 2024 Luca Kunz. When using the software, please cite [Kunz et al. (2024): "Transient Attracting Profiles in the Great Pacific Garbage Patch"](https://doi.org/10.5194/egusphere-2024-1215) and provide a link to the repository.
 
 ---
 
