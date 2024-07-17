@@ -69,22 +69,9 @@ To date, we have only visually examined if the tacking algorithm works well. In 
 
 ## Choice of $\epsilon$
 
-We have run the algorithm for the following values of the search box parameter:
-\begin{align*}
-  \epsilon=0.1^{\circ}, 0.25^{\circ}, 0.5^{\circ}, 0.75^{\circ}, 1.0^{\circ}, 1.25^{\circ}, 1.5^{\circ}
-\end{align*}
-For all $\epsilon$ values we find persistent TRAPs with roughly comparable shaped distributions of TRAP lifetimes and hardly changing distributions from $\epsilon=0.75^{\circ}$ onwards. The maximum lifetimes increase with increasing $\epsilon$ value and result in 197, 294, 302, 321, 321, 321 and 321 days, respectively (these results stem from computations upon geostrophic velocites with no Eckman currents). One can infer that for $\epsilon\ge0.5^{\circ}$ the longest living TRAPs must imply instances with velocities between
-\begin{align*}
-  v_{max}(\epsilon=0.25^{\circ})&=\frac{111120m}{1^{\circ}} \times \frac{0.25^{\circ}}{86400s} \approx 0.32 \frac{m}{s}
-\end{align*}
+The only free parameter $\epsilon$ defines the size of the search area around a given TRAP to look for a detection in the following snapshot, and we set it to $\epsilon =0.25^{\circ}$. A higher value for the algorithm creates 'jumps' from a current to an unrealistically far future TRAP detection and overestimates trajectory lengths, see Sect. S2 in the Supplementary Material of our [puplication](URL) for a detailed explanation and motivation for this choice. 
 
-and
 
-\begin{align*}
-  v_{max}(\epsilon=0.5^{\circ})\approx 0.64 \frac{m}{s}.
-\end{align*}
+## Spatial analysis of TRAP trajectories
 
-with $v_{max}(\epsilon)$ denoting the limit for TRAPs propagation speed under the given $\epsilon$ threshold.
-This is still within range of the maximum geostrophic + Eckman current velocities that are present in the underlying velocity data.
-But comparing it with TRAP translation speed this velocity range seems to be rather untypical for TRAPs translation. From a quick view one can estimate that more than $90\%$ of sampled TRAPs show translation speeds significantly below $v_{max}(\epsilon=0.25^{\circ}) \approx 0.32 \frac{m}{s}$. This gives reason to believe that this velocity range, the longer lifetimes as well as longer trajectories that we can observe for $\epsilon\ge0.5^{\circ}$ may result from 'jumps' of A TRAPs to unrealistically distant B TRAPs in the succeeding snapshot. As a consequence, parameter values of $\epsilon\ge0.5^{\circ}$ might introduce a bias to the tracking algorithm which would require some further analysis. On the other side, $v_{max}(\epsilon=0.1^{\circ}) \approx 0.13 \frac{m}{s}$ indicates that a parameter choice of $\epsilon=0.1^{\circ}$ might become too restrictive for an analysis of TRAP propagation.
-For the course of the work we therefore choose a more conservative approach and base the analysis on a parameter value of $\epsilon=0.25^{\circ}$. 
+The algorithm only captures the time spent *inside* the study domain and period. Therefore, it gives rise to potential bias in the lifetime estimation of TRAPs that reach beyond the tempo-spatial limits of the domain. However, we find that only 5.4% of all TRAP trajectories in our experiment are adjacent to these limits and might not entirely occur within the study domain. Our conclusions and the distribution of TRAP lifetimes don't change if those biased trajectories are excluded, see Sect. S3 in the Supplementary Material of our [puplication](URL), where we analyse this in detail.
