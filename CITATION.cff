@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Kunz"
+  given-names: "Luca"
+title: "Track and analyse Transient Attracting Profiles in the Great Pacific Garbage Patch"
+version: v1.0.0
+doi: 10.5281/zenodo.12761097
+date-released: 2024-07-17
+url: "https://doi.org/10.5281/zenodo.12761097"
