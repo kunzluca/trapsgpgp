@@ -59,3 +59,5 @@ The repository is licensed under the GNU General Public License v3.0. © 2024 Lu
 ---
 
 ## Happy coding!
+
+<img src="Y000_KEYFIGURE_TRAJECTORIES_LONGLIVING_TRAPS.png" alt="image not available" title="Trajectories of long-living TRAPs with lifetimes beyond 30 days" width="100%" />
